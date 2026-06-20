@@ -1,0 +1,76 @@
+aid: zenscrape
+url: https://raw.githubusercontent.com/api-evangelist/zenscrape/refs/heads/main/apis.yml
+name: Zenscrape
+kind: company
+description: Zenscrape is a web scraping API that returns the rendered HTML of any
+  target URL while handling proxy rotation, headless-browser JavaScript rendering,
+  geotargeting, and Cloudflare protection. A single GET /get request fetches a page
+  through a rotating pool of standard or premium residential proxies, with a /status
+  endpoint for remaining credits and an HTTP proxy-mode interface for existing
+  proxy-based clients.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Web Scraping
+- Proxy
+- HTML
+- Data Extraction
+- JavaScript Rendering
+created: '2026-06-20'
+modified: '2026-06-20'
+specificationVersion: '0.19'
+apis:
+- aid: zenscrape:zenscrape-scrape-api
+  name: Zenscrape Scrape API
+  tags:
+  - Web Scraping
+  - HTML
+  - Proxy
+  - JavaScript Rendering
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://app.zenscrape.com/documentation
+  baseURL: https://app.zenscrape.com/api/v1
+  properties:
+  - url: https://app.zenscrape.com/documentation
+    type: Documentation
+  - url: https://app.zenscrape.com/documentation
+    type: APIReference
+  - url: openapi/zenscrape-openapi.yml
+    type: OpenAPI
+  description: Fetches the HTML of a target URL via GET /get, routing the request
+    through rotating standard or premium proxies with optional headless-browser
+    JavaScript rendering, geolocation, device emulation, and custom/forwarded
+    headers. Request cost varies from 1 to 25 credits by configuration.
+- aid: zenscrape:zenscrape-account-api
+  name: Zenscrape Account API
+  tags:
+  - Account
+  - Usage
+  - Credits
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://app.zenscrape.com/documentation
+  baseURL: https://app.zenscrape.com/api/v1
+  properties:
+  - url: https://app.zenscrape.com/documentation
+    type: Documentation
+  - url: https://app.zenscrape.com/documentation
+    type: APIReference
+  - url: openapi/zenscrape-openapi.yml
+    type: OpenAPI
+  description: Returns the remaining request credits for the authenticated account
+    via GET /status, supporting usage monitoring and quota-aware client logic.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/zenscrape
+- type: Website
+  url: https://zenscrape.com/
+- type: Documentation
+  url: https://app.zenscrape.com/documentation
+- type: Plans
+  url: plans/zenscrape-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/zenscrape-rate-limits.yml
+- type: FinOps
+  url: finops/zenscrape-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

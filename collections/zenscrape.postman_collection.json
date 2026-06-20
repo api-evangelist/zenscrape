@@ -1,0 +1,149 @@
+{
+  "info": {
+    "name": "Zenscrape API",
+    "description": {
+      "content": "Web scraping API returning rendered HTML of any target URL with proxy rotation, JavaScript rendering, and geotargeting. Auth via the apikey header.",
+      "type": "text/plain"
+    },
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apikey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.zenscrape.com/api/v1"
+    },
+    {
+      "key": "apikey",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "id": "scrape-folder",
+      "name": "Scrape",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "scrape-get",
+          "name": "Scrape a target URL and return its HTML.",
+          "request": {
+            "name": "Scrape a target URL and return its HTML.",
+            "description": {
+              "content": "Fetches the HTML of the target URL through rotating proxies. Set render=true for headless-browser JavaScript rendering and premium=true for premium residential proxies. Optional: location (country code), device (desktop|mobile), keep_headers. Cost: 1 credit basic, 5 render, 10 premium, 25 premium+render.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/get?url=https://example.com&render=false&premium=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "get"
+              ],
+              "query": [
+                {
+                  "key": "url",
+                  "value": "https://example.com"
+                },
+                {
+                  "key": "render",
+                  "value": "false"
+                },
+                {
+                  "key": "premium",
+                  "value": "false"
+                },
+                {
+                  "key": "location",
+                  "value": "us",
+                  "disabled": true
+                },
+                {
+                  "key": "device",
+                  "value": "desktop",
+                  "disabled": true
+                },
+                {
+                  "key": "keep_headers",
+                  "value": "false",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "apikey",
+                "value": "{{apikey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "account-folder",
+      "name": "Account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "status-get",
+          "name": "Return remaining account credits.",
+          "request": {
+            "name": "Return remaining account credits.",
+            "description": {
+              "content": "Returns the number of request credits remaining for the authenticated account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "apikey",
+                "value": "{{apikey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

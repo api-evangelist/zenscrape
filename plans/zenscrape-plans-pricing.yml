@@ -1,0 +1,186 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Zenscrape
+providerId: zenscrape
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Web Scraping
+- Proxy
+- HTML
+- Data Extraction
+- JavaScript Rendering
+- Plans
+description: >-
+  Zenscrape uses fixed monthly subscription tiers, each bundling a set number
+  of API request credits and a concurrent-request limit. Credits are consumed
+  per scrape: 1 credit for a basic request, 5 with JavaScript rendering, 10
+  with premium proxies, and 25 with both. A perpetual Free tier provides 1,000
+  credits per month. Annual subscriptions receive a 10% discount.
+notes: >-
+  Tier prices, credit allotments, and concurrency are as published on the
+  Zenscrape pricing page; verify the current page for changes.
+sources:
+- https://zenscrape.com/pricing/
+- https://app.zenscrape.com/documentation
+plans:
+- id: zenscrape-free
+  name: Free
+  type: free
+  description: >-
+    Free tier with 1,000 monthly request credits for evaluation and small
+    projects.
+  entries:
+  - label: Included Requests
+    name: free_requests
+    type: included
+    metric: requests
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0.00
+    userMultiplied: false
+  elements:
+  - name: Standard Proxies
+  - name: Web Scraping API
+- id: zenscrape-small
+  name: Small
+  type: paid
+  description: >-
+    Entry paid tier with 250,000 monthly credits and up to 10 concurrent
+    requests.
+  entries:
+  - label: Monthly Subscription
+    name: small_subscription
+    type: flat
+    metric: subscription
+    limit: 250000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $59.99
+    userMultiplied: false
+  - label: Concurrent Requests
+    name: small_concurrency
+    type: limit
+    metric: concurrency
+    limit: 10
+    timeFrame: instant
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Standard Proxies
+  - name: Premium Proxies
+  - name: JavaScript Rendering
+  - name: Worldwide Geotargeting
+- id: zenscrape-medium
+  name: Medium
+  type: paid
+  description: >-
+    Mid tier with 1,000,000 monthly credits and up to 25 concurrent requests.
+  entries:
+  - label: Monthly Subscription
+    name: medium_subscription
+    type: flat
+    metric: subscription
+    limit: 1000000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $99.99
+    userMultiplied: false
+  - label: Concurrent Requests
+    name: medium_concurrency
+    type: limit
+    metric: concurrency
+    limit: 25
+    timeFrame: instant
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Standard Proxies
+  - name: Premium Proxies
+  - name: JavaScript Rendering
+  - name: Worldwide Geotargeting
+- id: zenscrape-large
+  name: Large
+  type: paid
+  description: >-
+    High-volume tier with 3,000,000 monthly credits and up to 50 concurrent
+    requests.
+  entries:
+  - label: Monthly Subscription
+    name: large_subscription
+    type: flat
+    metric: subscription
+    limit: 3000000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $249.99
+    userMultiplied: false
+  - label: Concurrent Requests
+    name: large_concurrency
+    type: limit
+    metric: concurrency
+    limit: 50
+    timeFrame: instant
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Standard Proxies
+  - name: Premium Proxies
+  - name: JavaScript Rendering
+  - name: Worldwide Geotargeting
+- id: zenscrape-professional
+  name: Professional
+  type: paid
+  description: >-
+    Top tier with 5,000,000 monthly credits and up to 100 concurrent requests.
+  entries:
+  - label: Monthly Subscription
+    name: professional_subscription
+    type: flat
+    metric: subscription
+    limit: 5000000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $349.99
+    userMultiplied: false
+  - label: Concurrent Requests
+    name: professional_concurrency
+    type: limit
+    metric: concurrency
+    limit: 100
+    timeFrame: instant
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Standard Proxies
+  - name: Premium Proxies
+  - name: JavaScript Rendering
+  - name: Worldwide Geotargeting
+creditCosts:
+- label: Basic request (no render, no premium)
+  credits: 1
+- label: With JavaScript rendering
+  credits: 5
+- label: With premium proxies
+  credits: 10
+- label: With premium proxies + rendering
+  credits: 25
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,103 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Zenscrape
+providerId: zenscrape
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Web Scraping
+- Proxy
+- HTML
+- Data Extraction
+- JavaScript Rendering
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Zenscrape spend. Zenscrape bills a fixed monthly subscription
+  per tier, each bundling a pool of request credits. Cost is realized as credits
+  consumed per scrape: 1 credit basic, 5 with JavaScript rendering, 10 with
+  premium proxies, and 25 with premium proxies plus rendering. Optimizing spend
+  means choosing the lowest-cost request configuration that still succeeds and
+  right-sizing the monthly tier to actual credit burn.
+notes: >-
+  Per-request credit costs and tier credit allotments are subject to change;
+  verify against the Zenscrape pricing page and dashboard during reconciliation.
+sources:
+- https://zenscrape.com/pricing/
+- https://app.zenscrape.com/documentation
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Zenscrape
+serviceCategory: Web Scraping and Data Extraction
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Zenscrape API
+  ServiceCategory: Web Scraping and Data Extraction
+  ProviderName: Zenscrape
+  PublisherName: Zenscrape
+  InvoiceIssuerName: Zenscrape
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription
+meters:
+- name: basic_requests
+  description: Scrape requests with no rendering and no premium proxy, billed at 1 credit each.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: render_requests
+  description: Scrape requests with headless-browser JavaScript rendering, billed at 5 credits each.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: premium_requests
+  description: Scrape requests routed through premium residential proxies, billed at 10 credits each.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: premium_render_requests
+  description: Scrape requests with both premium proxies and rendering, billed at 25 credits each.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: subscription_fee
+  description: Fixed monthly subscription charge for the active plan tier.
+  unit: subscription
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track credit consumption per request configuration via /status and dashboard usage exports.
+- name: Allocation
+  description: Tag API keys per workload/team and attribute credit burn to internal cost centers.
+- name: Optimization
+  description: Use basic (1-credit) requests when possible; only enable render or premium when the target requires it; right-size the monthly tier and take the 10% annual discount.
+- name: Accountability
+  description: Assign owners per scraping job; review monthly credit burn against the tier allotment before renewal or upgrade.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

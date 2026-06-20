@@ -1,0 +1,59 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Zenscrape
+providerId: zenscrape
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Web Scraping
+- Proxy
+- HTML
+- Data Extraction
+- JavaScript Rendering
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Zenscrape governs usage through two mechanisms: a monthly request-credit
+  quota tied to the subscription tier, and a concurrent-request ceiling that
+  scales by plan (10 on Small, 25 on Medium, 50 on Large, 100 on Professional).
+  Each scrape consumes 1 to 25 credits depending on whether rendering and/or
+  premium proxies are used. Exhausting credits or exceeding concurrency results
+  in throttling rather than per-minute request caps.
+notes: >-
+  Concurrency limits are taken from the published pricing tiers; per-account
+  burst behavior and exact throttling response codes should be confirmed in the
+  dashboard on reconciliation.
+sources:
+- https://zenscrape.com/pricing/
+- https://app.zenscrape.com/documentation
+responseCodes:
+  throttled: 429
+limits:
+- name: Monthly Request Credits
+  scope: account
+  metric: credits
+  limit: 1000-5000000 by plan
+  notes: Free 1,000; Small 250,000; Medium 1,000,000; Large 3,000,000; Professional 5,000,000.
+- name: Concurrent Requests
+  scope: account
+  metric: concurrency
+  limit: 10-100 by plan
+  notes: Small 10, Medium 25, Large 50, Professional 100; Free tier not published.
+- name: Per-Request Credit Cost
+  scope: request
+  metric: credits
+  limit: 1-25 per request
+  notes: 1 basic, 5 render, 10 premium, 25 premium + render.
+policies:
+- name: Quota Exhaustion
+  description: Requests are rejected once the monthly credit allotment is consumed; upgrade the plan or wait for renewal.
+- name: Concurrency Ceiling
+  description: Requests above the plan's concurrent limit are throttled; clients should queue and retry with backoff.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor any Retry-After header on throttling.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

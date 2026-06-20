@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenscrape API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scrape",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Scrape a target URL and return its HTML.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.zenscrape.com/api/v1/get?url=https://example.com&render=false&premium=false",
+            "headers": [
+              {
+                "key": "apikey",
+                "value": "{{apikey}}"
+              }
+            ]
+          },
+          "docs": "Fetches the HTML of the target URL through rotating proxies. Set render=true for headless-browser JavaScript rendering and premium=true for premium residential proxies. Optional: location (country code), device (desktop|mobile), keep_headers. Cost: 1 credit basic, 5 render, 10 premium, 25 premium+render."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return remaining account credits.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.zenscrape.com/api/v1/status",
+            "headers": [
+              {
+                "key": "apikey",
+                "value": "{{apikey}}"
+              }
+            ]
+          },
+          "docs": "Returns the number of request credits remaining for the authenticated account."
+        }
+      ]
+    }
+  ]
+}

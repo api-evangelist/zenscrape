@@ -1,0 +1,62 @@
+aid: zenscrape
+name: Zenscrape
+review:
+  question: Does Zenscrape expose a documented public WebSocket or streaming API?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Zenscrape exposes only synchronous
+    request/response REST endpoints and an HTTP proxy-mode interface. There
+    is no documented Server-Sent Events (SSE) or WebSocket surface, so no
+    event-driven specification is in scope.
+findings:
+  summary: |
+    Zenscrape is a synchronous web scraping API. A client issues GET (or POST)
+    /get with a target url and receives the page HTML in a single response;
+    GET /status returns remaining credits. Authentication is the `apikey`
+    request header, also accepted as a query parameter or form field. An HTTP
+    proxy-mode interface is offered at proxy-server.zenscrape.com:8282 using
+    the API key as the proxy username. No realtime, streaming, SSE, or
+    WebSocket (ws:// or wss://) endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://app.zenscrape.com/api/v1
+      documented: true
+    - protocol: HTTP Proxy
+      scheme: http
+      baseURL: proxy-server.zenscrape.com:8282
+      documented: true
+      note: Proxy-mode interface; API key used as the proxy username with parameters as the password.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming endpoint is documented.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in the Zenscrape documentation as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://app.zenscrape.com/api/v1/get
+    - POST https://app.zenscrape.com/api/v1/get
+    - GET  https://app.zenscrape.com/api/v1/status
+    - POST https://app.zenscrape.com/api/v1/status
+sources:
+  - url: https://app.zenscrape.com/documentation
+    type: Documentation
+    note: Documents /get and /status, apikey header auth, request-cost (credit) model, premium proxies, JS rendering, geotargeting, and proxy mode.
+  - url: https://zenscrape.com/pricing/
+    type: Pricing
+    note: Subscription tiers with monthly credit allotments and concurrency limits.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or streaming protocol surface exists. The API is fully
+    synchronous REST plus an HTTP proxy-mode interface, so no AsyncAPI
+    artifact was authored.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
