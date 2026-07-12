@@ -59,6 +59,10 @@ apis:
   description: Returns the remaining request credits for the authenticated account
     via GET /status, supporting usage monitoring and quota-aware client logic.
 common:
+- type: DomainSecurity
+  url: security/zenscrape-domain-security.yml
+- type: Authentication
+  url: authentication/zenscrape-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/zenscrape
 - type: Website
@@ -71,6 +75,8 @@ common:
   url: rate-limits/zenscrape-rate-limits.yml
 - type: FinOps
   url: finops/zenscrape-finops.yml
+- type: Blog
+  url: https://zenscrape.com/feed/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

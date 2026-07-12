@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/zenscrape-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apikey
+  type: apiKey
+  in: header
+  parameter: apikey
+  description: API key issued from the Zenscrape dashboard. May also be supplied as the `apikey`
+    query parameter or form field.
+  sources:
+  - openapi/zenscrape-openapi.yml
