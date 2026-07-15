@@ -59,6 +59,8 @@ apis:
   description: Returns the remaining request credits for the authenticated account
     via GET /status, supporting usage monitoring and quota-aware client logic.
 common:
+- type: AgenticAccess
+  url: agentic-access/zenscrape-agentic-access.yml
 - type: DomainSecurity
   url: security/zenscrape-domain-security.yml
 - type: Authentication
