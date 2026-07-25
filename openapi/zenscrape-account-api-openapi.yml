@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: Zenscrape Account API
+  description: Zenscrape is a web scraping API that returns the rendered HTML of a target URL. The GET /get endpoint fetches a page through rotating standard or premium proxies with optional headless-browser JavaScript rendering, geolocation, and device emulation. The GET /status endpoint returns the remaining request credits for the authenticated account. Authentication is via the `apikey` request header (the key may also be supplied as a query parameter or form field). Request cost ranges from 1 to 25 credits depending on configuration.
+  termsOfService: https://zenscrape.com/terms-and-conditions/
+  contact:
+    name: Zenscrape Support
+    url: https://zenscrape.com/contact/
+  version: '1.0'
+servers:
+- url: https://app.zenscrape.com/api/v1
+security:
+- apikey: []
+tags:
+- name: Account
+paths:
+  /status:
+    get:
+      operationId: getStatus
+      tags:
+      - Account
+      summary: Return remaining account credits.
+      description: Returns the number of request credits remaining for the authenticated account.
+      responses:
+        '200':
+          description: Remaining account credits.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+        '401':
+          description: Unauthorized - missing or invalid API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Status:
+      type: object
+      properties:
+        remaining_requests:
+          type: integer
+          description: Number of request credits left on the account.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
+  securitySchemes:
+    apikey:
+      type: apiKey
+      in: header
+      name: apikey
+      description: API key issued from the Zenscrape dashboard. May also be supplied as the `apikey` query parameter or form field.
