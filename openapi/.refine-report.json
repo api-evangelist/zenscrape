@@ -1,0 +1,16 @@
+{
+  "provider": "zenscrape",
+  "sources": [
+    "zenscrape-account-api-openapi.yml",
+    "zenscrape-scrape-api-openapi.yml"
+  ],
+  "outputs": [
+    "zenscrape-account-api-openapi.yml",
+    "zenscrape-scrape-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
