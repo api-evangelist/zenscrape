@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenscrape Account API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return remaining account credits.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.zenscrape.com/api/v1/status"
+          },
+          "docs": "Returns the number of request credits remaining for the authenticated account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

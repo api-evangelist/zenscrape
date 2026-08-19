@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zenscrape Account Scrape API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apikey",
+      "value": "{{apikey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scrape",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Scrape a target URL and return its HTML.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.zenscrape.com/api/v1/get",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The fully qualified URL of the page to scrape."
+              },
+              {
+                "name": "render",
+                "value": "",
+                "type": "query",
+                "description": "Render the page with a headless browser, executing client-side JavaScript before returning the resulting HTML."
+              },
+              {
+                "name": "premium",
+                "value": "",
+                "type": "query",
+                "description": "Route the request through premium residential proxies to reduce the chance of bot detection."
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Two-letter country code identifying the geolocation the request should originate from (e.g. `us`, `de`, `au`). Premium locations require the premium parameter."
+              },
+              {
+                "name": "device",
+                "value": "",
+                "type": "query",
+                "description": "Device type to emulate for the request."
+              },
+              {
+                "name": "keep_headers",
+                "value": "",
+                "type": "query",
+                "description": "Forward the headers sent on the request to the target site. Combine with custom request headers to control the scraped response."
+              }
+            ]
+          },
+          "docs": "Fetches the target URL through a rotating proxy pool and returns the page source. Set `render=true` to execute the page's JavaScript with a headless browser, and `premium=true` to route through premium residential proxies. Cost: 1 credit (no render, no premium), 5 (render), 10 (premium), 25 (premium + render)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

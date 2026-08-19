@@ -1,0 +1,393 @@
+{
+  "item": [
+    {
+      "id": "ac8e981e-fe78-4b2d-a720-1c94dc93a500",
+      "name": "Scrape",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6fd28648-98d8-4b8e-b125-71969bf99ea1",
+          "name": "Scrape a target URL and return its HTML.",
+          "request": {
+            "name": "Scrape a target URL and return its HTML.",
+            "description": {
+              "content": "Fetches the target URL through a rotating proxy pool and returns the page source. Set `render=true` to execute the page's JavaScript with a headless browser, and `premium=true` to route through premium residential proxies. Cost: 1 credit (no render, no premium), 5 (render), 10 (premium), 25 (premium + render).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) The fully qualified URL of the page to scrape."
+                },
+                {
+                  "disabled": false,
+                  "key": "render",
+                  "value": "false",
+                  "description": "Render the page with a headless browser, executing client-side JavaScript before returning the resulting HTML."
+                },
+                {
+                  "disabled": false,
+                  "key": "premium",
+                  "value": "false",
+                  "description": "Route the request through premium residential proxies to reduce the chance of bot detection."
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "<string>",
+                  "description": "Two-letter country code identifying the geolocation the request should originate from (e.g. `us`, `de`, `au`). Premium locations require the premium parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "device",
+                  "value": "desktop",
+                  "description": "Device type to emulate for the request."
+                },
+                {
+                  "disabled": false,
+                  "key": "keep_headers",
+                  "value": "false",
+                  "description": "Forward the headers sent on the request to the target site. Combine with custom request headers to control the scraped response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a2937e0-8650-4c9e-bd88-0e289bc4cd6c",
+              "name": "The HTML source of the scraped page.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render",
+                      "value": "false"
+                    },
+                    {
+                      "key": "premium",
+                      "value": "false"
+                    },
+                    {
+                      "key": "location",
+                      "value": "us"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "keep_headers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8aa4ea28-3ce6-4d54-afa4-5f757a346efd",
+              "name": "Bad request - missing or invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render",
+                      "value": "false"
+                    },
+                    {
+                      "key": "premium",
+                      "value": "false"
+                    },
+                    {
+                      "key": "location",
+                      "value": "us"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "keep_headers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a28bf83-c6a5-49a6-b3b7-427386d8c26f",
+              "name": "Unauthorized - missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render",
+                      "value": "false"
+                    },
+                    {
+                      "key": "premium",
+                      "value": "false"
+                    },
+                    {
+                      "key": "location",
+                      "value": "us"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "keep_headers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c664d3fd-4647-461d-a492-749c93ad2fb1",
+              "name": "The requested target URL could not be reached.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "render",
+                      "value": "false"
+                    },
+                    {
+                      "key": "premium",
+                      "value": "false"
+                    },
+                    {
+                      "key": "location",
+                      "value": "us"
+                    },
+                    {
+                      "key": "device",
+                      "value": "desktop"
+                    },
+                    {
+                      "key": "keep_headers",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apikey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.zenscrape.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apikey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "adcf488a-5a55-4f94-a997-33c172406dbc",
+    "name": "Zenscrape Account Scrape API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zenscrape is a web scraping API that returns the rendered HTML of a target URL. The GET /get endpoint fetches a page through rotating standard or premium proxies with optional headless-browser JavaScript rendering, geolocation, and device emulation. The GET /status endpoint returns the remaining request credits for the authenticated account. Authentication is via the `apikey` request header (the key may also be supplied as a query parameter or form field). Request cost ranges from 1 to 25 credits depending on configuration.\n\nContact Support:\n Name: Zenscrape Support",
+      "type": "text/plain"
+    }
+  }
+}
