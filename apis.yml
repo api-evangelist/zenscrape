@@ -8,6 +8,18 @@ description: Zenscrape is a web scraping API that returns the rendered HTML of a
   through a rotating pool of standard or premium residential proxies, with a /status
   endpoint for remaining credits and an HTTP proxy-mode interface for existing
   proxy-based clients.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
