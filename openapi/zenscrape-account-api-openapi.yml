@@ -36,18 +36,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
     Status:
       type: object
       properties:
         remaining_requests:
           type: integer
           description: Number of request credits left on the account.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
   securitySchemes:
     apikey:
       type: apiKey
