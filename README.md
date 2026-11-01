@@ -1,4 +1,4 @@
-# Zenscrape (zenscrape)
+# Zenscrape
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,76 +66,117 @@
 
 Zenscrape is a web scraping API that returns the rendered HTML of any target URL while handling proxy rotation, headless-browser JavaScript rendering, geotargeting, and Cloudflare protection. A single GET /get request fetches a page through a rotating pool of standard or premium residential proxies, with a /status endpoint for remaining credits and an HTTP proxy-mode interface for existing proxy-based clients.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/zenscrape/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/zenscrape/refs/heads/main/apis.yml)
+**Areas:** Web Scraping · Proxy · HTML · Data Extraction · JavaScript Rendering
 
-## Tags
+## Zenscrape on APIs.io
 
-- Web Scraping
-- Proxy
-- HTML
-- Data Extraction
-- JavaScript Rendering
+Everything profiled for Zenscrape is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/zenscrape/](https://apis.io/providers/zenscrape/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (2)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [Zenscrape Account API](https://apis.io/apis/zenscrape/zenscrape-account-api/) — The Account API from Zenscrape — 1 operation(s) for account.
+- [Zenscrape Scrape API](https://apis.io/apis/zenscrape/zenscrape-scrape-api/) — The Scrape API from Zenscrape — 1 operation(s) for scrape.
 
-## APIs
+### Published properties
 
-### Zenscrape Scrape API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Fetches the HTML of a target URL via GET /get, routing the request through rotating standard or premium proxies with optional headless-browser JavaScript rendering, geolocation, device emulation, and custom/forwarded headers. Request cost varies from 1 to 25 credits by configuration.
+#### Agentic access (1)
 
-- **Human URL:** [https://app.zenscrape.com/documentation](https://app.zenscrape.com/documentation)
-- **Base URL:** `https://app.zenscrape.com/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Zenscrape Agentic Access](https://apis.io/agentic-access/zenscrape/zenscrape-agentic-access/)
 
-- Web Scraping
-- HTML
-- Proxy
-- JavaScript Rendering
+#### Collections (3)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://app.zenscrape.com/documentation)
-- [API Reference](https://app.zenscrape.com/documentation)
-- [OpenAPI](openapi/zenscrape-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/zenscrape.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/zenscrape.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Zenscrape API](https://apis.io/collections/zenscrape/open-zenscrape/)
+- [Zenscrape Account API](https://apis.io/collections/zenscrape/open-zenscrape-account-api/)
+- [Zenscrape Account Scrape API](https://apis.io/collections/zenscrape/open-zenscrape-scrape-api/)
 
-### Zenscrape Account API
+#### Security (2)
 
-Returns the remaining request credits for the authenticated account via GET /status, supporting usage monitoring and quota-aware client logic.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://app.zenscrape.com/documentation](https://app.zenscrape.com/documentation)
-- **Base URL:** `https://app.zenscrape.com/api/v1`
+- [Zenscrape Authentication](https://apis.io/security/zenscrape/zenscrape-authentication/)
+- [Zenscrape Domain Security](https://apis.io/security/zenscrape/zenscrape-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Account
-- Usage
-- Credits
+Published plans, tiers and prices.
 
-#### Properties
+- [Zenscrape Plans Pricing](https://apis.io/plans/zenscrape/zenscrape-plans-pricing/)
 
-- [Documentation](https://app.zenscrape.com/documentation)
-- [API Reference](https://app.zenscrape.com/documentation)
-- [OpenAPI](openapi/zenscrape-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/zenscrape.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/zenscrape.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
 
-- [LinkedIn](https://www.linkedin.com/company/zenscrape)
+- [Zenscrape Rate Limits](https://apis.io/rate-limits/zenscrape/zenscrape-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Zenscrape Finops](https://apis.io/finops/zenscrape/zenscrape-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://zenscrape.com/)
 - [Documentation](https://app.zenscrape.com/documentation)
-- [Plans](plans/zenscrape-plans-pricing.yml)
-- [Rate Limits](rate-limits/zenscrape-rate-limits.yml)
-- [Fin Ops](finops/zenscrape-finops.yml)
+- [Blog](https://zenscrape.com/feed/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 27.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/zenscrape/](https://apis.io/providers/zenscrape/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Zenscrape: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/zenscrape/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
